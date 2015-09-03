@@ -1,0 +1,18 @@
+{% include "htmltop.html" %}
+
+	
+	<form   action="{{ url }}" method="post" id="registerform" align="center" style="margin-top:50px;" onsubmit=" return passcheck()"  enctype="multipart/form-data">
+		{% csrf_token %}
+		<table class="form_table" align="center">
+		{% for field in form %}
+		<tr>
+			<td >{{ field.label_tag}}</td>
+			<td >{{ field}}</td>
+		</tr>
+		{% endfor %}
+		</table>
+		
+		<button class="btn btn-primary" type="submit">{{ sub }}</button>
+
+	</form>
+{% include "htmlbottom.html" %}

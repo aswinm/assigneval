@@ -1,0 +1,35 @@
+{% include "htmltop.html" %}
+
+	<div style="margin-top:50px" align="center">
+		<strong>	Name:</strong> {{ assignment.name}}<br>
+		<strong>	Deadline:</strong> {{ assignment.deadline}}
+	</div>
+	<h5 align="center" style="margin-top:30px;font-size:1.3em">Plagiarisms Found</h5>
+	<table class="assignments table">
+		{% for assignment in plagiarisms %}
+		<tr>
+			<td>{{ assignment.user.username }}</td>
+			<td>{{ assignment.user.first_name}}&nbsp; {{ assignment.user.last_name}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<h5 align="center" style="margin-top:30px;font-size:1.3em;">All Submissions</h5>
+	<table class="assignments table">
+		<tr>
+			<th>Register Number</th>
+			<th>Name</th>
+			<th>Score</th>
+			<th>Grade</th>
+			
+		</tr>
+		{% for assignment in assignments %}
+		<tr>
+			<td>{{ assignment.user.username}}</td>
+			<td>{{ assignment.user.first_name}} &nbsp; {{ assignment.user.last_name}}</td>
+			<td>{{ assignment.score}}</td>
+			<td>{{ assignment.grade}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+{% include "htmlbottom.html" %}

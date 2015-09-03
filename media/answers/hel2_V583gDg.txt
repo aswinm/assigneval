@@ -1,0 +1,1 @@
+The discovery by computer of new, previously unknown information, by automatically extracting information from a usually large amount of different unstructured textual resources is called text mining

@@ -1,0 +1,46 @@
+<html>
+<head>
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+
+<title> Assignment Management System</title>
+<script src="/static/js/jquery1-11-1.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script>
+window.onload = function(){
+	var text = "{{ text}}";
+	if(text){
+		alert(text);
+	}
+}
+function passcheck() {
+	var x = document.forms["registerform"]["password"].value;
+	var y = document.forms["registerform"]["confirm_password"].value;
+	if(x!==y)
+	{
+		alert('Passwords do not match');
+		return false;
+	}
+	return true;
+}
+
+</script>
+
+</head>
+<body>
+<nav class="nav nav-pills" style="margin-top:100px;">
+	<li><a href="/">Home</a></li>
+	{% if user.is_staff %}
+	<li><a href="/assignments/add">Add Assignment</a></li>
+	<li><a href="/assignments">Assignments</a></li>
+	{% elif user.is_authenticated %}
+	<li><a href="/submit">Submit Assignment</a></li>
+	{% else %}
+	<li><a href="/register">Register</a></li>
+	<li><a href="/login">Login</a></li>
+	{% endif %}
+	{% if user.is_authenticated %}
+	<li><a href="/logout">Logout</a></li>
+	{% endif %}
+
+</nav>

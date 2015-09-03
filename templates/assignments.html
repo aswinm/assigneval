@@ -1,0 +1,14 @@
+{% include "htmltop.html" %}
+
+	<div style="margin-top:50px;" align="center">
+		<a href="/assignments/add">Add Assignment</a>
+	</div>
+	<table class="assignments">
+	{% for assignment in assignments %}
+		<tr>
+			<td><a href="/assignments/{{ assignment.aid}}">{{ assignment.name}}</a></td>
+			<td><a href="/assignments/edit/{{ assignment.aid}}">Edit</a></td>
+			<td><a href="/assignments/delete/{{ assignment.aid}}">Delete</a></td>
+		</tr>
+	{% endfor %}
+{% include "htmlbottom.html" %}
